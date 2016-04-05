@@ -11,3 +11,6 @@ set hlsearch
 
 colorscheme slate
 
+"Copy paste"
+:set clipboard=unnamedplus
+
