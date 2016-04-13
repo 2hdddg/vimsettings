@@ -15,9 +15,9 @@ set splitright
 if has("cscope")
 
     " add any cscope database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out  
-    endif
+    "if filereadable("cscope.out")
+    "    cs add cscope.out  
+    "endif
     " show msg when any other cscope db added
     set cscopeverbose  
     " Shortcuts in same window 
@@ -30,13 +30,13 @@ if has("cscope")
     nmap csi :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap csd :cs find d <C-R>=expand("<cword>")<CR><CR>	
     " Shortcuts, open new vert window
-    nmap cvs :vert scs find s <C-R>=expand("<cword>")<CR><CR>	
-    nmap cvg :vert scs find g <C-R>=expand("<cword>")<CR><CR>	
-    nmap cvc :vert scs find c <C-R>=expand("<cword>")<CR><CR>	
-    nmap cvt :vert scs find t <C-R>=expand("<cword>")<CR><CR>	
-    nmap cve :vert scs find e <C-R>=expand("<cword>")<CR><CR>	
-    nmap cvf :vert scs find f <C-R>=expand("<cfile>")<CR><CR>	
-    nmap cvi :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap cvd :vert scs find d <C-R>=expand("<cword>")<CR><CR>	
+    nmap dss :vert scs find s <C-R>=expand("<cword>")<CR><CR>	
+    nmap dsg :vert scs find g <C-R>=expand("<cword>")<CR><CR>	
+    nmap dsc :vert scs find c <C-R>=expand("<cword>")<CR><CR>	
+    nmap dst :vert scs find t <C-R>=expand("<cword>")<CR><CR>	
+    nmap dse :vert scs find e <C-R>=expand("<cword>")<CR><CR>	
+    nmap dsf :vert scs find f <C-R>=expand("<cfile>")<CR><CR>	
+    nmap dsi :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap dsd :vert scs find d <C-R>=expand("<cword>")<CR><CR>	
 
 endif
