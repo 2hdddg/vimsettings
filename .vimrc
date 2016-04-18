@@ -12,6 +12,8 @@ colorscheme slate
 "Open window to the right
 set splitright
 
+set noswapfile
+
 if has("cscope")
 
     " add any cscope database in current directory
