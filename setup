@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+REPO="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ ! -e ~/.vimrc ]
+then
+    ln -s $REPO/.vimrc ~/.vimrc
+fi
+
+if [ ! -e ~/.gvimrc ]
+then
+    ln -s $REPO/.gvimrc ~/.gvimrc
+fi
+
