@@ -6,7 +6,7 @@ set wildchar=<Tab> wildmenu wildmode=full
 syntax on
 " Highlight matching search strings
 set hlsearch
-colorscheme slate
+colorscheme torte
 " Copy paste
 :set clipboard=unnamedplus
 " Open window to the right
