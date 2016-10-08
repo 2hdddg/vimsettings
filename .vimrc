@@ -16,6 +16,8 @@ set noswapfile
 set list listchars=tab:»·,trail:·,extends:#
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
+set path+=**
+
 " Status line
 set laststatus=2                             " always show
 set statusline=
@@ -58,4 +60,8 @@ endif
 "Workaround for logipat mapping ELP which shadows :E
 let g:loaded_logipat = 1
 
+" Filesystem browser
+filetype plugin on
+let g:netrw_banner=0    " Skip banner on top
+let g:netrw_liststyle=3 " default to tree, toggle with i, pick root gn
 
