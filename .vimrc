@@ -65,3 +65,9 @@ filetype plugin on
 let g:netrw_banner=0    " Skip banner on top
 let g:netrw_liststyle=3 " default to tree, toggle with i, pick root gn
 
+" Snippets
+" For C
+nnoremap ,csvf :-read $HOME/vimsnippets/c/static_void_func<cr>2wi
+nnoremap ,csf :-read $HOME/vimsnippets/c/static_func<cr>wi
+nnoremap ,cis :-read $HOME/vimsnippets/c/include_sys<cr>f<a
+nnoremap ,cil :-read $HOME/vimsnippets/c/include_loc<cr>f"a

@@ -11,3 +11,7 @@ then
     ln -s $REPO/.gvimrc ~/.gvimrc
 fi
 
+if [ ! -e ~/vimsnippets ]
+then
+    ln -s $REPO/vimsnippets ~/vimsnippets
+fi
