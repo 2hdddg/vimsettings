@@ -37,7 +37,7 @@ if has("cscope")
     endif
     " show msg when any other cscope db added
     set cscopeverbose
-    " Shortcuts in same window 
+    " Shortcuts in same window
     nmap css :cs find s <C-R>=expand("<cword>")<CR><CR>	
     nmap csg :cs find g <C-R>=expand("<cword>")<CR><CR>	
     nmap csc :cs find c <C-R>=expand("<cword>")<CR><CR>	
@@ -71,3 +71,5 @@ nnoremap ,csvf :-read $HOME/vimsnippets/c/static_void_func<cr>2wi
 nnoremap ,csf :-read $HOME/vimsnippets/c/static_func<cr>wi
 nnoremap ,cis :-read $HOME/vimsnippets/c/include_sys<cr>f<a
 nnoremap ,cil :-read $HOME/vimsnippets/c/include_loc<cr>f"a
+nnoremap ,cif :-read $HOME/vimsnippets/c/if<cr>f(a
+nnoremap ,cel :-read $HOME/vimsnippets/c/else<cr>ji
