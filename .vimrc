@@ -64,6 +64,7 @@ let g:loaded_logipat = 1
 filetype plugin on
 let g:netrw_banner=0    " Skip banner on top
 let g:netrw_liststyle=3 " default to tree, toggle with i, pick root gn
+let g:netrw_list_hide=netrw_gitignore#Hide()
 
 " Snippets
 " For C
