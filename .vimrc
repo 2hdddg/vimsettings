@@ -16,7 +16,7 @@ set noswapfile
 set list listchars=tab:»·,trail:·,extends:#
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 
-set path+=**
+"set path+=**
 
 " Status line
 set laststatus=2                             " always show
@@ -63,8 +63,8 @@ let g:loaded_logipat = 1
 " Filesystem browser
 filetype plugin on
 let g:netrw_banner=0    " Skip banner on top
-let g:netrw_liststyle=3 " default to tree, toggle with i, pick root gn
-let g:netrw_list_hide=netrw_gitignore#Hide()
+"let g:netrw_liststyle=3 " default to tree, toggle with i, pick root gn
+"let g:netrw_list_hide=netrw_gitignore#Hide()
 
 " Snippets
 " For C
@@ -74,3 +74,10 @@ nnoremap ,cis :-read $HOME/vimsnippets/c/include_sys<cr>f<a
 nnoremap ,cil :-read $HOME/vimsnippets/c/include_loc<cr>f"a
 nnoremap ,cif :-read $HOME/vimsnippets/c/if<cr>f(a
 nnoremap ,cel :-read $HOME/vimsnippets/c/else<cr>ji
+
+" Use a local viminfo instead of global as default,
+" I usually start vim in project dir  and most of the
+" stuff in viminfo only makes sense to a speciffic
+" project.
+set viminfo+=n./viminfo
+
