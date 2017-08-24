@@ -6,6 +6,7 @@ set wildchar=<Tab> wildmenu wildmode=full
 syntax on
 " Highlight matching search strings
 set hlsearch
+set incsearch
 colorscheme torte
 " Copy paste
 :set clipboard=unnamedplus
@@ -15,7 +16,9 @@ set splitright
 set noswapfile
 set list listchars=tab:»·,trail:·,extends:#
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set cursorline
 
+" Too slow on big projects..
 "set path+=**
 
 " Status line
@@ -56,6 +59,9 @@ if has("cscope")
     nmap dsi :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
     nmap dsd :vert scs find d <C-R>=expand("<cword>")<CR><CR>	
 endif
+
+" jk is escape
+inoremap jk <esc>
 
 "Workaround for logipat mapping ELP which shadows :E
 let g:loaded_logipat = 1
