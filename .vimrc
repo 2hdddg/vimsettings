@@ -60,6 +60,8 @@ if has("cscope")
     nmap dsd :vert scs find d <C-R>=expand("<cword>")<CR><CR>	
 endif
 
+nmap mf :lgetexpr system("gop search --name " . expand('<cword>') . " --file " . expand('%:p'))<CR> :lopen<CR>
+
 " jk is escape
 inoremap jk <esc>
 
@@ -85,5 +87,5 @@ nnoremap ,cel :-read $HOME/vimsnippets/c/else<cr>ji
 " I usually start vim in project dir  and most of the
 " stuff in viminfo only makes sense to a speciffic
 " project.
-set viminfo+=n./viminfo
+"set viminfo+=n./viminfo
 
