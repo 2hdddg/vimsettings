@@ -15,3 +15,13 @@ if [ ! -e ~/vimsnippets ]
 then
     ln -s $REPO/vimsnippets ~/vimsnippets
 fi
+
+if [ ! -e ~/.vim/pack ]
+then
+    mkdir ~/.vim/pack
+fi
+if [ ! -e ~/.vim/pack/plugins ]
+then
+    ln -s $REPO/plugins ~/.vim/pack/plugins
+fi
+
