@@ -89,3 +89,18 @@ nnoremap ,cel :-read $HOME/vimsnippets/c/else<cr>ji
 " project.
 "set viminfo+=n./viminfo
 
+
+" Language Server Protocol support
+" Go
+augroup LspGo
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+      \ 'name': 'go-lang',
+      \ 'cmd': {server_info->['go-langserver']},
+      \ 'whitelist': ['go'],
+      \ })
+    autocmd FileType go setlocal omnifunc=lsp#complete
+    autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
+augroup END
+
+
