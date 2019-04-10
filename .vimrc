@@ -18,6 +18,8 @@ set list listchars=tab:»·,trail:·,extends:#
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set cursorline
 
+set colorcolumn=80
+
 " Too slow on big projects..
 "set path+=**
 
