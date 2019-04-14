@@ -85,14 +85,21 @@ autocmd FileType go setlocal noexpandtab
 " Go
 augroup LspGo
     au!
-    autocmd User lsp_setup call lsp#register_server({
-      \ 'name': 'go-lang',
-      \ 'cmd': {server_info->['go-langserver']},
-      \ 'whitelist': ['go'],
-      \ })
+    if executable('go-langserver')
+        au User lsp_setup call lsp#register_server({
+          \ 'name': 'go-langserver',
+          \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
+          \ 'whitelist': ['go'],
+          \ })
+    elseif executable('gopls')
+        au User lsp_setup call lsp#register_server({
+            \ 'name': 'gopls',
+            \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+            \ 'whitelist': ['go'],
+            \ })
+    endif
     autocmd FileType go setlocal omnifunc=lsp#complete
     autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
+    autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
 augroup END
-
-
 
