@@ -99,7 +99,10 @@ augroup LspGo
             \ })
     endif
     autocmd FileType go setlocal omnifunc=lsp#complete
-    autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
     autocmd FileType go autocmd BufWritePre <buffer> LspDocumentFormatSync
 augroup END
 
+" General lsp definitions
+nmap ,d <plug>(lsp-definition)
+nmap ,h <plug>(lsp-hover)
+nmap ,r <plug>(lsp-references)
