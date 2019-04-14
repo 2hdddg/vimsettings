@@ -76,20 +76,9 @@ let g:netrw_banner=0    " Skip banner on top
 "let g:netrw_liststyle=3 " default to tree, toggle with i, pick root gn
 "let g:netrw_list_hide=netrw_gitignore#Hide()
 
-" Snippets
-" For C
-nnoremap ,csvf :-read $HOME/vimsnippets/c/static_void_func<cr>2wi
-nnoremap ,csf :-read $HOME/vimsnippets/c/static_func<cr>wi
-nnoremap ,cis :-read $HOME/vimsnippets/c/include_sys<cr>f<a
-nnoremap ,cil :-read $HOME/vimsnippets/c/include_loc<cr>f"a
-nnoremap ,cif :-read $HOME/vimsnippets/c/if<cr>f(a
-nnoremap ,cel :-read $HOME/vimsnippets/c/else<cr>ji
-
-" Use a local viminfo instead of global as default,
-" I usually start vim in project dir  and most of the
-" stuff in viminfo only makes sense to a speciffic
-" project.
-"set viminfo+=n./viminfo
+" Go
+" Want tabs
+autocmd FileType go setlocal noexpandtab
 
 
 " Language Server Protocol support
@@ -104,5 +93,6 @@ augroup LspGo
     autocmd FileType go setlocal omnifunc=lsp#complete
     autocmd FileType go nmap <buffer> gd <plug>(lsp-definition)
 augroup END
+
 
 
