@@ -20,6 +20,8 @@ set cursorline
 
 set colorcolumn=80
 
+set nomodeline
+
 " Too slow on big projects..
 "set path+=**
 
