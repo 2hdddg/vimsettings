@@ -87,13 +87,7 @@ autocmd FileType go setlocal noexpandtab
 " Go
 augroup LspGo
     au!
-    if executable('go-langserver')
-        au User lsp_setup call lsp#register_server({
-          \ 'name': 'go-langserver',
-          \ 'cmd': {server_info->['go-langserver', '-gocodecompletion']},
-          \ 'whitelist': ['go'],
-          \ })
-    elseif executable('gopls')
+    if executable('gopls')
         au User lsp_setup call lsp#register_server({
             \ 'name': 'gopls',
             \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
@@ -108,3 +102,4 @@ augroup END
 nmap ,d <plug>(lsp-definition)
 nmap ,h <plug>(lsp-hover)
 nmap ,r <plug>(lsp-references)
+nmap ,n <plug>(lsp-rename)
