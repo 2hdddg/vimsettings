@@ -103,3 +103,5 @@ nmap ,d <plug>(lsp-definition)
 nmap ,h <plug>(lsp-hover)
 nmap ,r <plug>(lsp-references)
 nmap ,n <plug>(lsp-rename)
+" Show info on current line in normal mode
+let g:lsp_diagnostics_echo_cursor = 1
