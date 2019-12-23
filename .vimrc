@@ -105,3 +105,10 @@ nmap ,r <plug>(lsp-references)
 nmap ,n <plug>(lsp-rename)
 " Show info on current line in normal mode
 let g:lsp_diagnostics_echo_cursor = 1
+
+" Make completion in normal mode behave a bit like ctrlp
+inoremap <expr> <C-j>     pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k>     pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr> <CR>      pumvisible() ? "\<C-y>" : "\<CR>"
+
+
