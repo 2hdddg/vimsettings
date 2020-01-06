@@ -78,6 +78,8 @@ let g:netrw_banner=0    " Skip banner on top
 "let g:netrw_liststyle=3 " default to tree, toggle with i, pick root gn
 "let g:netrw_list_hide=netrw_gitignore#Hide()
 
+set signcolumn=auto
+
 " Go
 " Want tabs
 autocmd FileType go setlocal noexpandtab
@@ -87,6 +89,7 @@ autocmd FileType go setlocal noexpandtab
 " Go
 augroup LspGo
     au!
+
     if executable('gopls')
         au User lsp_setup call lsp#register_server({
             \ 'name': 'gopls',
@@ -97,18 +100,36 @@ augroup LspGo
     autocmd FileType go setlocal omnifunc=lsp#complete
     autocmd FileType go autocmd BufWritePre <buffer> silent! LspDocumentFormatSync
 augroup END
+" Java
+augroup LspJava
+    au!
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'jdt',
+        \ 'cmd': {server_info->['java', '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+        \ '-Dosgi.bundles.defaultStartLevel=4', '-Declipse.product=org.eclipse.jdt.ls.core.product',
+        \ '-noverify', '-Xmx1G', '-XX:+UseG1GC', '-XX:+UseStringDeduplication', '-jar',
+        \ '/home/peter/code/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.5.600.v20191014-2022.jar',
+        \ '-configuration', '/home/peter/code/jdt-language-server/config_linux', '-data', '/home/peter/code/jdt-language-server/workspace' ]},
+        \ 'whitelist': ['java'],
+        \ })
+augroup END
 
 " General lsp definitions
 nmap ,d <plug>(lsp-definition)
 nmap ,h <plug>(lsp-hover)
 nmap ,r <plug>(lsp-references)
 nmap ,n <plug>(lsp-rename)
+nmap ,s <plug>(lsp-document-symbol)
 " Show info on current line in normal mode
 let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_enabled = 1
+" Annoying auto popup...
+let g:lsp_signature_help_enabled = 0
 
 " Make completion in normal mode behave a bit like ctrlp
-inoremap <expr> <C-j>     pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-j>
+ \ pumvisible() ? "\<C-n>" : asyncomplete#force_refresh()
 inoremap <expr> <C-k>     pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <CR>      pumvisible() ? "\<C-y>" : "\<CR>"
-
-
+" Don't auto complete all the time
+let g:asyncomplete_auto_popup = 0
