@@ -133,3 +133,14 @@ inoremap <expr> <C-k>     pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <CR>      pumvisible() ? "\<C-y>" : "\<CR>"
 " Don't auto complete all the time
 let g:asyncomplete_auto_popup = 0
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+" bind K to grep word under cursor
+nnoremap K :silent! grep! <cword> <bar>cwindow<bar>redraw!<cr>
+""\b<C-R><C-W>\b"<CR>:cw<CR>
+
