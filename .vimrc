@@ -135,12 +135,12 @@ inoremap <expr> <CR>      pumvisible() ? "\<C-y>" : "\<CR>"
 let g:asyncomplete_auto_popup = 0
 
 " The Silver Searcher
+" Use ag over grep
 if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --vimgrep\ $*
+  set grepformat=%f:%l:%c:%m
+  " bind K to grep word under cursor
+  " this binding only works with ag
+  nnoremap K :silent! grep! <cword> <bar>cwindow<bar>redraw!<cr>
 endif
-
-" bind K to grep word under cursor
-nnoremap K :silent! grep! <cword> <bar>cwindow<bar>redraw!<cr>
-""\b<C-R><C-W>\b"<CR>:cw<CR>
 
