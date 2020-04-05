@@ -1,3 +1,4 @@
+set term=xterm-256color
 set nocompatible
 " Show line numbers
 set number
@@ -99,6 +100,7 @@ augroup LspGo
     endif
     autocmd FileType go setlocal omnifunc=lsp#complete
     autocmd FileType go autocmd BufWritePre <buffer> silent! LspDocumentFormatSync
+    set colorcolumn=100
 augroup END
 " Java
 augroup LspJava
