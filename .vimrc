@@ -8,7 +8,7 @@ syntax on
 " Highlight matching search strings
 set hlsearch
 set incsearch
-colorscheme torte
+colorscheme peachpuff
 " Copy paste
 :set clipboard=unnamedplus
 " Open window to the right
